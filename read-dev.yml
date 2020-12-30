@@ -29,3 +29,28 @@ qiniu:
   sk: Om8AZofVZFYZaJo2TMTPMhsWHo0OWqmlNzKmMG37
   bucket: zilongdushu
   url: http://qlfan50gz.hn-bkt.clouddn.com/
+#redis配置信息
+redis:
+  database: 0
+  host: 127.0.0.1
+#hystirx与feign进行整合
+feign:
+  hystrix:
+    enabled: true
+
+#标注 feign访问接口多少时间没有返回值 报错
+#default全局有效，service id指定应用有效
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+
+#ribbon的超时时间
+ribbon:
+ ReadTimeout: 6000
+ ConnectTimeout: 6000
